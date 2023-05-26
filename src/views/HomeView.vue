@@ -2,14 +2,14 @@
 import { ref } from 'vue'
 import ArrowLeftIcon from '@/components/icons/ArrowLeftIcon.vue'
 
-const percentage = ref<number>()
+const percentage = ref<number>(0)
 const value = ref<string>()
 const total = ref<number>(0)
 const step = ref<number>(1)
 
 const doCalc = (e: Event) => {
   e.preventDefault()
-  const profit = value.value * percentage.value / 100
+  const profit = Number(value.value) * percentage.value / 100
   total.value = profit + Number(value.value)
   step.value++
 }
