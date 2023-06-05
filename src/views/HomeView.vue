@@ -37,6 +37,7 @@ const numberFormat = (num: number) => {
         id="value"
         required
         v-model="value"
+        v-mask="['#,##', '##,##', '###,##']"
       />
       <button type="submit">Calcular</button>
     </form>
