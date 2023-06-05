@@ -13,6 +13,10 @@ const doCalc = (e: Event) => {
   total.value = profit + Number(value.value)
   step.value++
 }
+
+const numberFormat = (num: number) => {
+  return Number(num.toFixed(2)).toLocaleString('pt-BR')
+}
 </script>
 
 <template>
@@ -42,7 +46,7 @@ const doCalc = (e: Event) => {
         <ArrowLeftIcon />
       </button>
       <h5>Valor com seu lucro</h5>
-      <h3>R$ {{ total }}</h3>
+      <h3>R$ {{ numberFormat(total) }}</h3>
     </div>
   </div>
 </template>
