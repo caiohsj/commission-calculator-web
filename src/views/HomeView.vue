@@ -10,14 +10,17 @@ const step = ref<number>(1)
 
 const doCalc = (e: Event) => {
   e.preventDefault()
-  const profit = Number(value.value) * percentage.value / 100
-  total.value = profit + Number(value.value)
+  const numberStripped = unformatNumber(value.value)
+  const profit = Number(numberStripped) * percentage.value / 100
+  total.value = profit + Number(numberStripped)
   step.value++
 }
 
 const numberFormat = (num: number) => {
   return Number(num.toFixed(2)).toLocaleString('pt-BR')
 }
+
+const unformatNumber = (num: number) => String(num).replace(',', '.')
 </script>
 
 <template>
@@ -88,6 +91,7 @@ const numberFormat = (num: number) => {
     justify-items: center;
     width: 400px;
     height: 400px;
+    padding: 0 40px;
     border-radius: 20px;
     animation-name: showForm;
     animation-duration: 1.2s;
@@ -103,7 +107,7 @@ const numberFormat = (num: number) => {
     }
 
     label, input, button {
-      width: 260px;
+      width: 100%;
     }
 
     button {
@@ -140,6 +144,15 @@ const numberFormat = (num: number) => {
         width: 20px;
         height: 20px;
       }
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .home-view {
+
+    form {
+      width: 80%;
     }
   }
 }
