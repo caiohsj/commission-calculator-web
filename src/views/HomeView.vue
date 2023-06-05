@@ -4,7 +4,7 @@ import { vMaska } from 'maska'
 import ArrowLeftIcon from '@/components/icons/ArrowLeftIcon.vue'
 
 const percentage = ref<number>(0)
-const value = ref<string>()
+const value = ref<string>('')
 const total = ref<number>(0)
 const step = ref<number>(1)
 
@@ -20,7 +20,7 @@ const numberFormat = (num: number) => {
   return Number(num.toFixed(2)).toLocaleString('pt-BR')
 }
 
-const unformatNumber = (num: number) => String(num).replace(',', '.')
+const unformatNumber = (num: number | string) => String(num).replace(',', '.')
 </script>
 
 <template>
