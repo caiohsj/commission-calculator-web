@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { vMaska } from 'maska'
 import ArrowLeftIcon from '@/components/icons/ArrowLeftIcon.vue'
 
 const percentage = ref<number>(0)
@@ -37,7 +38,8 @@ const numberFormat = (num: number) => {
         id="value"
         required
         v-model="value"
-        v-mask="['#,##', '##,##', '###,##']"
+        v-maska
+        data-maska="['#,##', '##,##', '###,##']"
       />
       <button type="submit">Calcular</button>
     </form>
